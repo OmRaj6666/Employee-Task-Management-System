@@ -145,19 +145,22 @@ Employee-Task-Management-System/
 
 ## Manager Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard]<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 27 09 PM" src="https://github.com/user-attachments/assets/cf5ba0ae-1049-40ab-a90a-7b39e111e8d0" />
+
 
 ---
 
 ## Employee Management
 
-![Employees](screenshots/employees.png)
+![Employees]<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 27 20 PM" src="https://github.com/user-attachments/assets/179f6409-7fe4-4549-abe2-e208f9562283" />
+
 
 ---
 
 ## Task Management
 
-![Tasks](screenshots/tasks.png)
+![Tasks]<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 27 34 PM" src="https://github.com/user-attachments/assets/6aec3cdc-2049-4974-ae00-5b28bd67ddb0" />
+
 
 ---
 
@@ -169,19 +172,22 @@ Employee-Task-Management-System/
 
 ## Reports
 
-![Reports](screenshots/reports.png)
+![Reports]<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 28 13 PM" src="https://github.com/user-attachments/assets/f0f9f9e3-adac-4824-b779-82382ccd20de" />
+
 
 ---
 
 ## Audit Logs
 
-![Audit](screenshots/audit_logs.png)
+![Audit]<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 28 18 PM" src="https://github.com/user-attachments/assets/a1801af6-6544-42c7-9791-15b61704cc01" />
+
 
 ---
 
-## Notifications
+## Settings
 
-![Notifications](screenshots/notifications.png)
+![Settings]<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 28 23 PM" src="https://github.com/user-attachments/assets/b056f174-7c68-4671-ad8d-88ac10faf485" />
+
 
 ---
 
