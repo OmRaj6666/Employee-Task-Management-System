@@ -166,7 +166,11 @@ Employee-Task-Management-System/
 
 ## Employee Portal
 
-![Employee](screenshots/employee_dashboard.png)
+![Employee]<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 34 14 PM" src="https://github.com/user-attachments/assets/1790c217-5b39-441b-878c-58c1b952ec35" />
+<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 34 23 PM" src="https://github.com/user-attachments/assets/2d287fe5-fadd-462f-9a53-caec3c04e796" />
+
+
+
 
 ---
 
