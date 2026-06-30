@@ -362,13 +362,13 @@ git push origin feature-name
 
 B.Tech Computer Science & Engineering (CSE)
 
-VIT Bhopal University
+
 
 GitHub:
 https://github.com/OmRaj6666
 
 LinkedIn:
-https://linkedin.com/in/omraj6666
+https://www.linkedin.com/in/om-raj-vit/
 
 
 ---
