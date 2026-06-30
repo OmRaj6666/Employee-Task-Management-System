@@ -199,13 +199,8 @@ Employee-Task-Management-System/
 
 Watch the complete project demonstration:
 
-**Coming Soon**
+https://github.com/user-attachments/assets/13d87b1c-b0f1-40c3-abd0-1f5b73bc12aa
 
-or
-
-```
-https://youtu.be/your-video-link
-```
 
 ---
 
