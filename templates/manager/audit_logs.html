@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Audit Logs{% endblock %}
+
+{% block page_title %}Audit Logs{% endblock %}
+
+{% block content %}
+
+<div class="content-card">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>Activity Log</h4>
+        <div>
+            <span class="badge bg-primary">{{ logs|length }} Total Entries</span>
+        </div>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Description</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if logs %}
+                    {% for log in logs %}
+                    <tr>
+                        <td>{{ log.audit_id }}</td>
+                        <td>
+                            {% if log.employee %}
+                                <strong>{{ log.employee.full_name }}</strong>
+                                <br>
+                                <small class="text-muted">{{ log.employee.role }}</small>
+                            {% else %}
+                                <span class="text-muted">System</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="badge bg-{% if 'Login' in log.action %}success{% elif 'Logout' in log.action %}warning{% elif 'Delete' in log.action or 'Deleted' in log.action %}danger{% elif 'Edit' in log.action or 'Update' in log.action %}info{% elif 'Add' in log.action or 'Assign' in log.action %}primary{% elif 'Clear' in log.action %}secondary{% else %}secondary{% endif %}">
+                                {{ log.action }}
+                            </span>
+                        </td>
+                        <td>{{ log.description or '-' }}</td>
+                        <td>{{ log.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">No audit logs available</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

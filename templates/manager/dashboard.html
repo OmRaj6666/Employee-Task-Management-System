@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="row g-4 mb-4">
+    <div class="col-xl-3 col-md-6">
+        <div class="dashboard-card card-blue">
+            <h5>Total Employees</h5>
+            <h2>{{ total_employees }}</h2>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="dashboard-card card-green">
+            <h5>Completed</h5>
+            <h2>{{ completed }}</h2>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="dashboard-card card-orange">
+            <h5>Pending</h5>
+            <h2>{{ pending }}</h2>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+        <div class="dashboard-card card-red">
+            <h5>Overdue</h5>
+            <h2>{{ overdue }}</h2>
+        </div>
+    </div>
+</div>
+
+<!-- Analytics -->
+<div class="row g-4 mt-1">
+    <div class="col-lg-6">
+        <div class="content-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Task Status</h4>
+                <i class="bi bi-pie-chart-fill fs-4 text-primary"></i>
+            </div>
+            <canvas id="statusChart"></canvas>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="content-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Monthly Tasks</h4>
+                <i class="bi bi-graph-up-arrow fs-4 text-success"></i>
+            </div>
+            <canvas id="monthlyChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Tasks -->
+<div class="content-card mt-4">
+    <h4 class="mb-4">Recent Tasks</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Employee</th>
+                <th>Task</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if recent_tasks %}
+                {% for task in recent_tasks %}
+                <tr>
+                    <td>{{ task.task_id }}</td>
+                    <td>{{ task.employee.full_name }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>
+                        <span class="badge bg-{% if task.status == 'Completed' %}success{% elif task.status == 'Pending' %}warning{% else %}danger{% endif %}">
+                            {{ task.status }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="4" class="text-center">No Tasks Available</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Task Status Chart - Doughnut Chart
+    const statusCtx = document.getElementById('statusChart').getContext('2d');
+    new Chart(statusCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Completed', 'Pending', 'Overdue'],
+            datasets: [{
+                data: [{{ completed }}, {{ pending }}, {{ overdue }}],
+                backgroundColor: ['#22c55e', '#f97316', '#ef4444'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        usePointStyle: true
+                    }
+                }
+            }
+        }
+    });
+
+    // Monthly Tasks Chart - Line Chart
+    const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+    
+    // Get monthly data safely
+    const monthlyData = {{ monthly_data|tojson|safe if monthly_data else '[]' }};
+    
+    new Chart(monthlyCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Tasks',
+                data: monthlyData,
+                borderColor: '#2563eb',
+                backgroundColor: 'rgba(37,99,235,0.15)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Assign Task</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+
+<h3>Assign New Task</h3>
+
+</div>
+
+<div class="card-body">
+
+<form method="POST">
+
+<div class="mb-3">
+
+<label>Employee</label>
+
+<select
+name="employee_id"
+class="form-select"
+required>
+
+{% for emp in employees %}
+
+<option value="{{ emp.employee_id }}">
+
+{{ emp.full_name }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+<div class="mb-3">
+
+<label>Task Title</label>
+
+<input
+type="text"
+name="title"
+class="form-control"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label>Description</label>
+
+<textarea
+name="description"
+class="form-control"
+rows="4"></textarea>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<label>Platform</label>
+
+<select
+name="platform"
+class="form-select">
+
+<option>Web</option>
+
+<option>Android</option>
+
+<option>iOS</option>
+
+<option>Backend</option>
+
+<option>Database</option>
+
+<option>Testing</option>
+
+<option>DevOps</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6">
+
+<label>Complexity</label>
+
+<select
+name="complexity"
+class="form-select">
+
+<option>Easy</option>
+
+<option>Medium</option>
+
+<option>Hard</option>
+
+</select>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<label>Due Date</label>
+
+<input
+type="date"
+name="due_date"
+class="form-control">
+
+</div>
+
+<div class="col-md-6">
+
+<label>Status</label>
+
+<select
+name="status"
+class="form-select">
+
+<option>Pending</option>
+
+<option>In Progress</option>
+
+<option>Completed</option>
+
+</select>
+
+</div>
+
+</div>
+
+<br>
+
+<button
+class="btn btn-success">
+
+Assign Task
+
+</button>
+
+<a
+href="{{ url_for('task.tasks') }}"
+class="btn btn-secondary">
+
+Cancel
+
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

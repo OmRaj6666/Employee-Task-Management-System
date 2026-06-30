@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block page_title %}Settings{% endblock %}
+
+{% block content %}
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+
+        <div class="content-card text-center">
+
+            <img src="https://ui-avatars.com/api/?name={{ current_user.full_name }}&background=2563eb&color=fff"
+                 class="rounded-circle mb-3"
+                 width="120">
+
+            <h4>{{ current_user.full_name }}</h4>
+
+            <p>{{ current_user.role }}</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-8">
+
+        <div class="content-card">
+
+            <h4 class="mb-4">Account Settings</h4>
+
+            <div class="list-group">
+
+                <a href="{{ url_for('settings.edit_profile') }}"
+                   class="list-group-item list-group-item-action">
+
+                    <i class="bi bi-person"></i>
+
+                    Edit Profile
+
+                </a>
+
+                <a href="{{ url_for('settings.change_password') }}"
+                   class="list-group-item list-group-item-action">
+
+                    <i class="bi bi-key"></i>
+
+                    Change Password
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

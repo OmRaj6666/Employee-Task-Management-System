@@ -1,0 +1,79 @@
+{% extends "employee/base_employee.html" %}
+
+{% block title %}Update Task{% endblock %}
+
+{% block page_title %}
+Update Task
+{% endblock %}
+
+{% block content %}
+
+<div class="content-card">
+
+    <h3 class="mb-4">{{ task.title }}</h3>
+
+    <form method="POST">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Status
+            </label>
+
+            <select
+                name="status"
+                class="form-select"
+                required>
+
+                <option value="Pending"
+                    {% if task.status=="Pending" %}selected{% endif %}>
+                    Pending
+                </option>
+
+                <option value="In Progress"
+                    {% if task.status=="In Progress" %}selected{% endif %}>
+                    In Progress
+                </option>
+
+                <option value="Completed"
+                    {% if task.status=="Completed" %}selected{% endif %}>
+                    Completed
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Remarks
+            </label>
+
+            <textarea
+                name="remarks"
+                rows="5"
+                class="form-control">{{ task.remarks }}</textarea>
+
+        </div>
+
+        <button class="btn btn-success">
+
+            <i class="bi bi-check-circle"></i>
+
+            Update Task
+
+        </button>
+
+        <a href="{{ url_for('employee_portal.my_tasks') }}"
+           class="btn btn-secondary">
+
+            Cancel
+
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

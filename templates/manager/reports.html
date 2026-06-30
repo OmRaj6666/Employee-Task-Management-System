@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    Reports Dashboard
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+<div class="dashboard-card card-blue">
+
+<h6>Total Employees</h6>
+
+<h2>{{ total_employees }}</h2>
+
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="dashboard-card card-green">
+
+<h6>Total Tasks</h6>
+
+<h2>{{ total_tasks }}</h2>
+
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="dashboard-card card-orange">
+
+<h6>Completed</h6>
+
+<h2>{{ completed }}</h2>
+
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="dashboard-card card-red">
+
+<h6>Pending</h6>
+
+<h2>{{ pending }}</h2>
+
+</div>
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<div class="content-card">
+
+<h4>Overall Progress</h4>
+
+<canvas id="reportChart"></canvas>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+new Chart(document.getElementById("reportChart"),{
+
+type:"bar",
+
+data:{
+
+labels:["Employees","Tasks","Completed","Pending","Overdue"],
+
+datasets:[{
+
+label:"Statistics",
+
+data:[
+{{ total_employees }},
+{{ total_tasks }},
+{{ completed }},
+{{ pending }},
+{{ overdue }}
+],
+
+borderRadius:10
+
+}]
+
+}
+
+});
+
+</script>
+
+{% endblock %}
