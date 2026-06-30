@@ -202,7 +202,6 @@ Demo Link: https://employee-task-management-system-36y8.onrender.com/
 Watch the complete project demonstration:
 
 
-https://github.com/user-attachments/assets/ac7739c2-bf77-430a-8ddf-3bef0851de35
 
 
 https://github.com/user-attachments/assets/13d87b1c-b0f1-40c3-abd0-1f5b73bc12aa
