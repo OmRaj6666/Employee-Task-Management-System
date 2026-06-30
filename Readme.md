@@ -139,9 +139,7 @@ Employee-Task-Management-System/
 
 ## Login
 
-![Login](![Uploading Screenshot 2026-06-30 at 7.20.28 PM.png…]()
-)
-)
+![Login]<img width="1470" height="956" alt="Screenshot 2026-06-30 at 7 20 28 PM" src="https://github.com/user-attachments/assets/bf6e576b-74f0-44ae-90e8-1c4343e892db" />
 
 ---
 
