@@ -215,7 +215,7 @@ https://github.com/user-attachments/assets/13d87b1c-b0f1-40c3-abd0-1f5b73bc12aa
 ## Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Employee-Task-Management-System.git
+git clone https://github.com/OmRaj6666/Employee-Task-Management-System.git
 
 cd Employee-Task-Management-System
 ```
